@@ -4,7 +4,7 @@ import sys
 import MySQLdb
 
 def change_the_option_value_by_ec2_public_ip(public_ip, mysql_host):
-    sql_message = "UPDATE wp_options SET option_value='"+public_ip+"' WHERE option_name='siteurl' OR option_name='home'"
+    sql_message = "UPDATE wp_options SET option_value='http://"+public_ip+"/wordpress' WHERE option_name='siteurl' OR option_name='home'"
     db = MySQLdb.connect(mysql_host,"root","root123456","wordpress")
     cursor = db.cursor()
     try:
